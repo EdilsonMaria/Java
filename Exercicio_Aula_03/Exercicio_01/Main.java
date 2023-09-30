@@ -1,48 +1,32 @@
-//Elabore um programa de uma idustriaque realiza a folha mensal de pagamentos
-//de seus funcionarios baseando nas seguintes regras:
-
-
 import java.util.Scanner;
-
 public class Main {
-    public static void main(String[] args) {
-
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         Scanner sc1 = new Scanner(System.in);
 
-        Funcionario fun = new Funcionario ();
+        Aluno a = new Aluno();
 
-        int sair;
-        do {
+        System.out.println("Informe seu nome: ");
+        String nome = sc.nextLine();
+        System.out.println("Digite a 1º nota: ");
+        double nota1 = sc1.nextDouble();
+        System.out.println("Digite a 2º nota: ");
+        double nota2 = sc1.nextDouble();
 
-            System.out.println("Dados do funcionario:");
+        a.media = (nota1 + nota2)/2;
 
-            System.out.println("Matricula:");
-            fun.Matricula = sc.nextInt();
+        System.out.println("Media do aluno " + a.media);
 
-            sc.nextLine(); //Limpando o Buffet
+        if (a.media >= 7) {
+            System.out.println(nome + " está aprovado!");
+        } else if (a.media < 4) {
+            System.out.println(nome + " está reprovado!");
+        } else {
+            System.out.println(nome + " está na final!");
+        }
 
-            System.out.println("Nome:");
-            fun.Nome = sc.nextLine();
-
-            System.out.println("Salario bruto:");
-            fun.Salario_bruto = sc1.nextDouble();
-
-            sc1.nextLine();
-
-            fun.calc_inss();
-            fun.cal_liquido();
-            System.out.println("Matricula:" + fun.Matricula);
-            System.out.println("Nome Completo:" + fun.Nome);
-            System.out.println("Salario Bruto:" + fun.Salario_bruto);
-            System.out.println("Dedução do INSS:" + fun.descontoINSS);
-            System.out.println("Salario liquido:" + fun.salarioLiquido);
-
-            System.out.println("Digite 0 para repetir: ");
-            sair = sc.nextInt();
-
-        } while (sair == 0);
-        System.out.println("Programa Encerrado");
-
+        sc.close();
+        sc1.close();
     }
+
 }
